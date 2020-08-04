@@ -1,3 +1,8 @@
+#ndio stuff
+webserver/backend/node_modules/
+webserver/flask-backend/venv/
+webserver/flask-backend/ndio.db
+
 # Miscellaneous
 *.class
 *.log
@@ -8,8 +13,6 @@
 .buildlog/
 .history
 .svn/
-/webserver/backend/node_modules/
-/webserver/flask_backend/venv
 
 # IntelliJ related
 *.iml
