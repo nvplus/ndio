@@ -58,3 +58,20 @@ def add_comment(pid):
     comments = ndb.add_comment(pid, body)
 
     return redirect(url_for('poll_page', pid=pid))
+
+@app.route('/search', methods=["POST"])
+def search():
+    search_term = request.form['search']
+    results = ndb.search(search_term)
+
+    return render_template('search.html', results=results)
+
+@app.route('/polls/<int:pid>/yes', methods=["PUT"])
+def increment_yes(pid):
+    result = ndb.increment_yes(pid)
+    return result
+
+@app.route('/polls/<int:pid>/no', methods=["PUT"])
+def increment_no(pid):
+    result = ndb.increment_no(pid)
+    return result

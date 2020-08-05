@@ -41,22 +41,27 @@
             {% endfor %}
             </div>
             
-<div class="ndio-page ndio-search-container" style="display:none;">
+            <div class="ndio-page ndio-search-container" style="display:none;">
                 <div id="TitleBorder"><h2>About us</h2>
                 <h1><Search</h1>
-                <input type="text" placeholder="Search for a post..">
-                </div>
+                <form action="{{ url_for('search') }}" method="post">
+                    <label for="title">Poll Title:</label><br>
+                    <input type="text" id="search" name="search" placeholder="Search for a poll...">
+                    <input type="submit">
+                </form>
+            </div>
+
                 <hr></hr>
                 
 
                 <div id="TitleBorder"><h2>About us</h2>
                     <img src="{{ url_for('static', filename = '/images/WLUBanner.png') }}" width="350" height="186"><br>
                 </div>
-                <h8>Ndio is an app developed by Wilfrid laurier Computer science students Eric T, Adam A, Thomas P, Kevin M and Vincent N.</h8><br><br>
-                
-                <h8>Our team found that it has become increasingly difficult to find effective ways of social interaction, especially in the current situation of the world where social distancing has been enforced globally. Many students in particular heavily relied on being able to regularly interact with others to ask questions, share advice, and create strong relationships. A method of being able to interact with those around you in a quick and easy manner would assist those that have felt suddenly disconnected from the world jump back in.</h8>
-                
-</div>
+                <div>
+                    <h8>Ndio is an app developed by Wilfrid laurier Computer science students Eric T, Adam A, Thomas P, Kevin M and Vincent N.</h8><br><br>
+                    
+                    <h8>Our team found that it has become increasingly difficult to find effective ways of social interaction, especially in the current situation of the world where social distancing has been enforced globally. Many students in particular heavily relied on being able to regularly interact with others to ask questions, share advice, and create strong relationships. A method of being able to interact with those around you in a quick and easy manner would assist those that have felt suddenly disconnected from the world jump back in.</h8>
+                </div>
             <div class="ndio-page ndio-profile-container" style="display:none;">
                 
                 <div id="TitleBorder">
