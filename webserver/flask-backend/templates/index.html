@@ -21,8 +21,9 @@
 
             <div class="ndio-page ndio-home-container">
 
+            {% for post in posts %}
                 <div class="poll">
-                    <div class="poll-title">Are you excited for the province reopening? (23h left)</div>
+                    <div class="poll-title">{{post.title}}</div>
                     <div class="poll-options">
                         <img class="poll-option poll-yes clickable" src="{{ url_for('static', filename = '/images/ndio-yes.png') }}">
                         <div class="poll-divider"></div>
@@ -36,6 +37,7 @@
                     </div>
                 </div>
             </div>
+            {% endfor %}
             
             <div class="ndio-page ndio-search-container" style="display:none;">
                 <h1>Search</h1>

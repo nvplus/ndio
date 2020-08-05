@@ -1,3 +1,5 @@
+var posts = {{ posts | safe }}
+
 function clearcomments() {
     $('.ndio-comments').html("");
 }
@@ -29,7 +31,7 @@ $(document).ready(function () {
         var n = Math.floor((Math.random() * 10) + 1);
         var options = $(this).closest('.poll-options');
 
-        options.html("<br>You voted Yes<br><br>Yes's: "+ y + " | No's: " + n);
+        options.html("<br>You voted Yes<br><br>Yes's: " + y + " | No's: " + n);
         options.css('margin-top', "14px");
     });
     

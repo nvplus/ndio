@@ -21,8 +21,20 @@ def create_poll():
 
 @app.route('/', methods=["GET"])
 def keysets():
+    posts = [
+        {
+            "title" : "hello",
+            "yes" : 0,
+            "no" : 0
+        },
+                {
+            "title" : "bye",
+            "yes" : 0,
+            "no" : 0
+        }
+    ]
     result = ndb.get_polls()
-    return render_template("index.html")
+    return render_template("index.html", posts=posts)
 
 """
 @app.route('/posts/comments/, methods=["GET"])
