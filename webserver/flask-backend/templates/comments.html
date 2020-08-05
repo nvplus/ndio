@@ -10,6 +10,16 @@
     </head>
 
     <body>
-        <h1>{{post.title}}</h1>
+        <h1>{{post[0].get('title')}}</h1>
+
+        {% for comment in comments %}
+            <p><b>{{ comment.date }}:</b> {{ comment.body }}</p>
+        {% endfor %}
+
+        <form action="{{ url_for('add_comment', pid=pid) }}" method="post">
+            <label for="body">Add a comment:</label><br>
+            <input type="text" id="body" name="body">
+            <input type="submit">
+          </form>
     </body>
 </html> 

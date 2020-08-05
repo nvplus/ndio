@@ -27,9 +27,9 @@ def _do_query_commit(query: str, args = ()):
 def get_polls():
     return _do_query("SELECT * FROM polls ORDER BY date DESC")
 
-def get_poll(pid:int):
-    print(pid)
-    return _do_query("SELECT * FROM polls WHERE id = '{}'".format(pid))
+def get_poll(pid):
+    q = "SELECT * FROM polls WHERE id={}".format(pid)
+    return _do_query(q)
 
 def create_poll(title: str):
     #makes a poll, takes in a title
@@ -44,8 +44,21 @@ def create_poll(title: str):
     except Exception as e:
         return "Could not insert poll: {}".format(e)
 
-def get_comments(pid:int):
+def get_comments(pid):
     #makes a poll, takes in a title
-    print(pid)
-    q =  'SELECT * FROM comments WHERE id="{}" ORDER BY date DESC'.format(pid)
+    q =  'SELECT * FROM comments WHERE pid={} ORDER BY date DESC'.format(pid)
     return _do_query(q)
+
+def add_comment(pid:int, body:str):
+    # add a comment to a specified poll
+    
+    date = datetime.datetime.now()
+    q =  'INSERT INTO comments (pid, body, date) VALUES(?, ?, ?);'
+    
+    try:
+        args = (pid, body, date)
+        _do_query_commit(q, args)
+
+        return _do_query('SELECT last_insert_rowid() FROM comments')
+    except Exception as e:
+        return "Could not insert poll: {}".format(e)

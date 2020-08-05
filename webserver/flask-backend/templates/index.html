@@ -32,10 +32,10 @@
                         <img class="poll-option poll-no clickable" onclick="vote_yes({{post.yes}}, {{post.no}})" src="{{ url_for('static', filename = 'images/ndio-no.png') }}">
                     </div>
                     <div class="poll-footer">
-                        <div class="poll-open-comments clickable">
-                            <img class="poll-comment-image" href="url_for(comments_page(post.id))", src="{{ url_for('static', filename='images/ndio-comment.png') }}">
+                        <a href="{{ url_for('poll_page', pid=post.id) }}" class="poll-open-comments clickable">
+                            <img class="poll-comment-image" src="{{ url_for('static', filename='images/ndio-comment.png') }}">
                             View comments and results
-                        </div>
+                        </a>
                     </div>
                 </div>
             {% endfor %}

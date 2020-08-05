@@ -33,8 +33,16 @@ def add_poll():
     return redirect(url_for('main'))
 
 # View the poll's comments
-@app.route('/polls/<int:pid>')
+@app.route('/polls/<int:pid>', methods=["GET"])
 def poll_page(pid):
-    post = ndb.get_poll(id)
+    post = ndb.get_poll(pid)
     comments = ndb.get_comments(pid)
-    return render_template("comments.html", post=post, comments=comments)
+    return render_template("comments.html", post=post, comments=comments, pid=pid)
+
+# Add a comment
+@app.route('/polls/<int:pid>', methods=["POST"])
+def add_comment(pid):
+    body = request.form['body']
+    comments = ndb.add_comment(pid, body)
+
+    return redirect(url_for('poll_page', pid=pid))
