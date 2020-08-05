@@ -4,6 +4,11 @@ function clearcomments() {
 
 $(document).ready(function () {
     /* POLLING */
+
+
+    /*
+     * Depracated poll create function
+     *
     $(".poll-create").click(function() {
         var poll = prompt("Enter your yes/no question: ");
         var html = ` 
@@ -24,6 +29,7 @@ $(document).ready(function () {
 
         $('.ndio-home-container').prepend(html);
     });
+    */
 
     $(".poll-yes").click(function() {
         var y = Math.floor((Math.random() * 10) + 1) + 1;

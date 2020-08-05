@@ -28,9 +28,9 @@ def get_polls():
     return _do_query("SELECT * FROM polls ORDER BY date DESC")
 
 def create_poll(title: str):
-    "makes a poll, takes in a title"
+    #makes a poll, takes in a title
     date = datetime.datetime.now()
-    q =  'INSERT INTO polls (title, date) VALUES(?);'
+    q =  'INSERT INTO polls (title, date) VALUES(?, ?);'
     
     try:
         args = (title, date)
