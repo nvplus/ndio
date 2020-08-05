@@ -9,7 +9,6 @@ function vote_yes(yes, no) {
     options.css('margin-top', "14px");
 }
 
-
 function vote_no(yes, no) {
     var options = $(event.target).closest('.poll-options');
 

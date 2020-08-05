@@ -31,3 +31,10 @@ def add_poll():
     poll = ndb.create_poll(title)
 
     return redirect(url_for('main'))
+
+# View the poll's comments
+@app.route('/polls/<int:pid>')
+def poll_page(pid):
+    post = ndb.get_poll(id)
+    comments = ndb.get_comments(pid)
+    return render_template("comments.html", post=post, comments=comments)
