@@ -27,10 +27,16 @@
                 <div class="poll" id="{{post.id}}">
                     <div class="poll-title">{{post.title}}</div>
                     <div class="poll-options">
-                        <img class="poll-option poll-yes clickable" onclick="vote_yes({{post.yes}}, {{post.no}})" src="{{ url_for('static', filename = '/images/ndio-yes.png') }}">
+                        <a href="{{ url_for('increment_yes', pid=post.id)}}">          
+                            <img class="poll-option poll-yes clickable" onclick="vote_yes({{post.yes}}, {{post.no}})" src="{{ url_for('static', filename = '/images/ndio-yes.png') }}">
+                        </a>    
+                        
                         <div class="poll-divider"></div>
-                        <img class="poll-option poll-no clickable" onclick="vote_yes({{post.yes}}, {{post.no}})" src="{{ url_for('static', filename = 'images/ndio-no.png') }}">
-                    </div>
+
+                        <a href="{{ url_for('increment_no', pid=post.id)}}">   
+                            <img class="poll-option poll-no clickable" onclick="vote_yes({{post.yes}}, {{post.no}})" src="{{ url_for('static', filename = 'images/ndio-no.png') }}">
+                        </a>
+                        </div>
                     <div class="poll-footer">
                         <a href="{{ url_for('poll_page', pid=post.id) }}" class="poll-open-comments clickable">
                             <img class="poll-comment-image" src="{{ url_for('static', filename='images/ndio-comment.png') }}">

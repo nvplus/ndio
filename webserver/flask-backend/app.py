@@ -66,12 +66,12 @@ def search():
 
     return render_template('search.html', results=results)
 
-@app.route('/polls/<int:pid>/yes', methods=["PUT"])
+@app.route('/polls/<int:pid>/yes', methods=["GET"])
 def increment_yes(pid):
     result = ndb.increment_yes(pid)
-    return result
+    return redirect(url_for('main'))
 
-@app.route('/polls/<int:pid>/no', methods=["PUT"])
+@app.route('/polls/<int:pid>/no', methods=["GET"])
 def increment_no(pid):
     result = ndb.increment_no(pid)
-    return result
+    return redirect(url_for('main'))
