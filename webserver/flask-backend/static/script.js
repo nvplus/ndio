@@ -11,13 +11,23 @@ $(document).ready(function () {
         <div class="poll">
         <div class="poll-title">${poll} (1 day left)</div>
         <div class="poll-options">
-            <img class="poll-option poll-yes clickable" src="../images/ndio-yes.png">
+<<<<<<< Updated upstream
+            <img class="poll-option poll-yes clickable" src="{{ url_for('static', filename = 'images/ndio-yes.png') }}">
             <div class="poll-divider"></div>
-            <img class="poll-option poll-no clickable" src="../images/ndio-no.png">
+            <img class="poll-option poll-no clickable" src="{{ url_for('static', filename = 'images/ndio-no.png') }}">
         </div>
         <div class="poll-footer">
             <div class="poll-open-comments clickable">
-                <img class="poll-comment-image" src="../images/ndio-comment.png">
+                <img class="poll-comment-image" src="{{ url_for('static', filename='images/ndio-comment.png') }}">
+=======
+            <img class="poll-option poll-yes clickable" src="images/ndio-yes.png">
+            <div class="poll-divider"></div>
+            <img class="poll-option poll-no clickable" src="images/ndio-no.png">
+        </div>
+        <div class="poll-footer">
+            <div class="poll-open-comments clickable">
+                <img class="poll-comment-image" src="images/ndio-comment.png">
+>>>>>>> Stashed changes
                 View comments
             </div>
         </div>
@@ -66,6 +76,7 @@ $(document).ready(function () {
 
     $('.ndio-home').click(function() {
         clearcomments();
+        $('.ndio-comments').hide();
         $('.ndio-search-container').hide();
         $('.ndio-home-container').show();
         $('.ndio-profile-container').hide();
@@ -73,6 +84,7 @@ $(document).ready(function () {
 
     $('.ndio-search').click(function() {
         clearcomments();
+        $('.ndio-comments').hide();
         $('.ndio-search-container').show();
         $('.ndio-home-container').hide();
         $('.ndio-profile-container').hide();
@@ -80,6 +92,7 @@ $(document).ready(function () {
 
     $('.ndio-profile').click(function() {
         clearcomments();
+        $('.ndio-comments').hide();
         $('.ndio-search-container').hide();
         $('.ndio-home-container').hide();
         $('.ndio-profile-container').show();
