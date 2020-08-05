@@ -64,6 +64,7 @@ $(document).ready(function () {
 
     $('.ndio-home').click(function() {
         clearcomments();
+        $('.ndio-comments').hide();
         $('.ndio-search-container').hide();
         $('.ndio-home-container').show();
         $('.ndio-profile-container').hide();
@@ -71,6 +72,7 @@ $(document).ready(function () {
 
     $('.ndio-search').click(function() {
         clearcomments();
+        $('.ndio-comments').hide();
         $('.ndio-search-container').show();
         $('.ndio-home-container').hide();
         $('.ndio-profile-container').hide();
@@ -78,6 +80,7 @@ $(document).ready(function () {
 
     $('.ndio-profile').click(function() {
         clearcomments();
+        $('.ndio-comments').hide();
         $('.ndio-search-container').hide();
         $('.ndio-home-container').hide();
         $('.ndio-profile-container').show();
