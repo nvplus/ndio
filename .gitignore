@@ -1,7 +1,9 @@
 #ndio stuff
 webserver/backend/node_modules/
 webserver/flask-backend/venv/
-webserver/flask-backend/ndio.db
+webserver/flask-backend/__pycache__/
+ndio.db
+ndio.db-journal
 
 # Miscellaneous
 *.class
