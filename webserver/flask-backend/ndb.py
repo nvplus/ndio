@@ -61,4 +61,34 @@ def add_comment(pid:int, body:str):
 
         return _do_query('SELECT last_insert_rowid() FROM comments')
     except Exception as e:
-        return "Could not insert poll: {}".format(e)
+        return "Could not add comment to poll: {}".format(e)
+
+
+def delete_comments(pid:int):
+    # cleanse a poll of comments
+    
+    q =  'DELETE FROM comments WHERE pid=?;'
+
+    try:
+        args = (pid)
+        _do_query_commit(q, args)
+
+        print(get_comments(pid))
+        return get_comments(pid)
+    except Exception as e:
+        return "Could not delete comments: {}".format(e)
+
+def delete_poll(pid:int):
+    delete_comments(pid)
+
+    q =  'DELETE FROM polls WHERE id=?;'
+    
+    try:
+        args = (pid)
+        _do_query_commit(q, args)
+
+        return True
+    except Exception as e:
+        return "Could not delete poll: {}".format(e)
+
+

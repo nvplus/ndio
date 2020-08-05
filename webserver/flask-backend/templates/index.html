@@ -11,8 +11,8 @@
     </head>
 
     <body>
-        <a class="ndio-header">
-            <p class="ndio-title">Ndio</p>
+        <div class="ndio-header">
+            <a href="{{ url_for('main') }}" class="ndio-title">Ndio</a>
             <a class="poll-create" href="{{ url_for('add_page') }}">
                 <img src="{{ url_for('static', filename='images/ndio-create.png') }}"></img>
             </a>

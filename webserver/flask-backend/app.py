@@ -17,7 +17,6 @@ def teardown_request(exception):
 @app.route('/', methods=["GET"])
 def main():
     posts = ndb.get_polls()
-    print(posts)
     return render_template("index.html", posts=posts)
 
 @app.route('/add_page', methods=["GET"])
@@ -32,7 +31,20 @@ def add_poll():
 
     return redirect(url_for('main'))
 
-# View the poll's comments
+# Delete a poll, takes in a JSON POST request with just the title
+@app.route('/polls/<int:pid>/delete', methods=["GET"])
+def delete_poll(pid):
+    success = ndb.delete_poll(pid)
+
+    
+    if (success is not None):
+        print('deleted poll success')
+    else:
+        print("bruh")
+    return redirect(url_for('main'))
+
+
+# View the poll's comments and results
 @app.route('/polls/<int:pid>', methods=["GET"])
 def poll_page(pid):
     post = ndb.get_poll(pid)
