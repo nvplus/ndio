@@ -11,6 +11,7 @@
 
     <body>
         <h1>{{post[0].get('title')}}</h1>
+        <p>Yes votes: {{post[0].get('yes')}} | No votes: {{post[0].get('no')}}</p>
 
         {% for comment in comments %}
             <p><b>{{ comment.date }}:</b> {{ comment.body }}</p>
