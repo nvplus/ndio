@@ -92,27 +92,15 @@ def delete_poll(pid:int):
         return "Could not delete poll: {}".format(e)
 
 def search(term):
-    q = 'SELECT * FROM polls WHERE title LIKE "%{}%"'.format(term)
+    q = 'SELECT * FROM polls WHERE title LIKE "%{}%"'.format(pid)
     return _do_query(q)
 
 def increment_yes(pid):
-    q = "UPDATE polls SET yes = yes + 1 WHERE id={}".format(term)
+    q = "UPDATE polls SET yes = yes + 1 WHERE id={}".format(pid)
+    _do_query_commit(q)
+    return "ok"
     
-    try:
-        args = (pid, body, date)
-        _do_query_commit(q)
-
-        return _do_query('SELECT last_insert_rowid() FROM comments')
-    except Exception as e:
-        return "Could not add comment to poll: {}".format(e)
-
 def increment_no(pid):
-    q = "UPDATE polls SET no = no + 1 WHERE id={}".format(term)
-       
-    try:
-        args = (pid, body, date)
-        _do_query_commit(q)
-
-        return _do_query('SELECT last_insert_rowid() FROM comments')
-    except Exception as e:
-        return "Could not add comment to poll: {}".format(e)
+    q = "UPDATE polls SET no = no + 1 WHERE id={}".format(pid)
+    _do_query_commit(q)
+    return "ok"
