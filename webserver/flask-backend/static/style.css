@@ -1,7 +1,21 @@
 body {
     font-family: Raleway, Tahoma, Geneva, sans-serif;
+    background-color:#ffe4d9;
 }
 
+/* this is a universal border : ) */
+#Border {
+    border: 5px solid #FFAA86;
+    border-radius: 40px;
+    text-align: center;
+    }
+
+/* this is a border for the title */
+#TitleBorder {
+
+border-radius: 40px;
+text-align: center;
+}
 
 
 /* Header stuff */
@@ -112,6 +126,7 @@ body {
     color: white;
     left: 10px;
     font-weight: 500;
+    
 }
 
 .poll-comment-image {
@@ -132,4 +147,12 @@ body {
     left: 0px;
     bottom:0;
     background-color:#FFAA86;
+}
+
+.ndio-comments{
+    text-align: relative;
+    width: 100%;
+    padding: 70px;
+    background-color:#d6a5a5;
+   
 }
