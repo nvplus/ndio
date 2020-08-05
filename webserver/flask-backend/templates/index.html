@@ -24,10 +24,10 @@
             <div class="ndio-page ndio-home-container">
 
             {% for post in posts %}
-                <div class="poll">
+                <div class="poll" id="{{post.id}}">
                     <div class="poll-title">{{post.title}}</div>
                     <div class="poll-options">
-                        <img class="poll-option poll-yes clickable" src="{{ url_for('static', filename = '/images/ndio-yes.png') }}">
+                        <img class="poll-option poll-yes clickable" onclick="vote_yes({{post.yes}}, {{post.no}})" src="{{ url_for('static', filename = '/images/ndio-yes.png') }}">
                         <div class="poll-divider"></div>
                         <img class="poll-option poll-no clickable" src="{{ url_for('static', filename = 'images/ndio-no.png') }}">
                     </div>

@@ -2,9 +2,23 @@ function clearcomments() {
     $('.ndio-comments').html("");
 }
 
+function vote_yes(yes, no) {
+    var options = $(event.target).closest('.poll-options');
+
+    options.html("<br>You voted Yes<br><br>Yes's: " + (yes + 1) + " | No's: " + no);
+    options.css('margin-top', "14px");
+}
+
+
+function vote_no(yes, no) {
+    var options = $(event.target).closest('.poll-options');
+
+    options.html("<br>You voted No<br><br>Yes's: " + yes + " | No's: " + (no + 1));
+    options.css('margin-top', "14px");
+}
+
 $(document).ready(function () {
     /* POLLING */
-
 
     /*
      * Depracated poll create function
@@ -30,24 +44,6 @@ $(document).ready(function () {
         $('.ndio-home-container').prepend(html);
     });
     */
-
-    $(".poll-yes").click(function() {
-        var y = Math.floor((Math.random() * 10) + 1) + 1;
-        var n = Math.floor((Math.random() * 10) + 1);
-        var options = $(this).closest('.poll-options');
-
-        options.html("<br>You voted Yes<br><br>Yes's: " + y + " | No's: " + n);
-        options.css('margin-top', "14px");
-    });
-    
-    $(".poll-no").click(function() {
-        var y = Math.floor((Math.random() * 10) + 1);
-        var n = Math.floor((Math.random() * 10) + 1) + 1;
-        var options = $(this).closest('.poll-options');
-
-        options.html("<br>You voted No<br><br>Yes's: "+ y + " | No's: " + n);
-        options.css('margin-top', "14px");
-    });
 
     $('.poll-open-comments').click(function() {
         $('.ndio-home-container').hide();
