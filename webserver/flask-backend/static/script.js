@@ -9,13 +9,13 @@ $(document).ready(function () {
         <div class="poll">
         <div class="poll-title">${poll} (1 day left)</div>
         <div class="poll-options">
-            <img class="poll-option poll-yes clickable" src="images/ndio-yes.png">
+            <img class="poll-option poll-yes clickable" src="{{ url_for('static', filename = 'images/ndio-yes.png') }}">
             <div class="poll-divider"></div>
-            <img class="poll-option poll-no clickable" src="images/ndio-no.png">
+            <img class="poll-option poll-no clickable" src="{{ url_for('static', filename = 'images/ndio-no.png') }}">
         </div>
         <div class="poll-footer">
             <div class="poll-open-comments clickable">
-                <img class="poll-comment-image" src="images/ndio-comment.png">
+                <img class="poll-comment-image" src="{{ url_for('static', filename='images/ndio-comment.png') }}">
                 View comments
             </div>
         </div>
