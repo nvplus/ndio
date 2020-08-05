@@ -92,7 +92,7 @@ def delete_poll(pid:int):
         return "Could not delete poll: {}".format(e)
 
 def search(term):
-    q = 'SELECT * FROM polls WHERE title LIKE "%{}%"'.format(pid)
+    q = 'SELECT * FROM polls WHERE title LIKE "%{}%"'.format(term)
     return _do_query(q)
 
 def increment_yes(pid):
